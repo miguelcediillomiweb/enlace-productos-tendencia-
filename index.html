@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#10213d">
+  <meta name="description" content="Crea enlaces de productos con vista previa para compartir por WhatsApp.">
+  <title>Enlaces de productos | Miguel</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-mark">↗</div>
+    <div><strong>Enlaces de productos</strong><small>Comparte con confianza por WhatsApp</small></div>
+    <span class="wa-tag">WhatsApp</span>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <span class="eyebrow">HERRAMIENTA PARA CLIENTES</span>
+      <h1>Haz que tus productos<br><em>se vean antes de abrirlos.</em></h1>
+      <p>Crea una tarjeta con foto, nombre y descripción. Al tocarla, el cliente llegará al enlace original del producto.</p>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading"><span class="step">01</span><div><h2>Información del producto</h2><p>Completa los datos que verá tu cliente.</p></div></div>
+      <form id="productForm">
+        <label for="title">Nombre del producto</label>
+        <input id="title" maxlength="90" placeholder="Ej. Agua mineral Peñafiel 600 ml" required>
+        <label for="description">Descripción breve</label>
+        <textarea id="description" maxlength="220" rows="3" placeholder="Una descripción clara y atractiva para el cliente." required></textarea>
+        <label for="destination">Enlace original de Google Drive o producto</label>
+        <input id="destination" type="url" inputmode="url" placeholder="https://drive.google.com/..." required>
+        <label for="image">Enlace público de la fotografía</label>
+        <input id="image" type="url" inputmode="url" placeholder="https://.../foto-del-producto.jpg" required>
+        <p class="hint">La foto debe tener una dirección pública que pueda abrirse sin iniciar sesión. En esta primera versión no se suben archivos privados del teléfono.</p>
+        <div class="preview-wrap">
+          <div class="preview-title">Así se verá la tarjeta</div>
+          <div class="preview-card">
+            <img id="previewImage" src="https://placehold.co/640x360/eaf0f8/53627a?text=Foto+del+producto" alt="Vista previa del producto">
+            <div class="preview-copy"><strong id="previewTitle">Nombre del producto</strong><p id="previewDescription">Aquí aparecerá la descripción del producto.</p><small>ENLACE DE PRODUCTO</small></div>
+          </div>
+        </div>
+        <button class="primary" id="createButton" type="submit">Crear enlace para WhatsApp <span>↗</span></button>
+        <p id="status" class="status" role="status"></p>
+      </form>
+    </section>
+
+    <section id="result" class="panel result-panel" hidden>
+      <div class="section-heading"><span class="step success">02</span><div><h2>Tu enlace está listo</h2><p>Compártelo en WhatsApp para generar la tarjeta.</p></div></div>
+      <div class="link-output"><a id="shareUrl" href="#" target="_blank" rel="noopener"></a><button id="copyButton" type="button" class="secondary">Copiar</button></div>
+      <a id="openShare" class="primary share-button" href="#" target="_blank" rel="noopener">Abrir WhatsApp <span>↗</span></a>
+      <p class="hint">Antes de enviarlo a tus clientes, pruébalo en un chat personal. WhatsApp puede tardar un momento en mostrar la imagen.</p>
+    </section>
+
+    <section class="panel history-panel">
+      <div class="section-heading"><span class="step">03</span><div><h2>Enlaces recientes</h2><p>Se guardan en este dispositivo.</p></div></div>
+      <div id="history" class="history-list"><p class="empty">Todavía no has creado enlaces.</p></div>
+    </section>
+    <footer>Herramienta independiente para compartir productos. No pertenece ni está afiliada a WhatsApp o Grupo Peñafiel.</footer>
+  </main>
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
